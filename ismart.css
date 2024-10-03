@@ -32,12 +32,15 @@ body {
 }
 
 .navbar.scrolled{
-    background-color: rgba(241, 239, 239, 0.5);
+    background-color: rgba(241, 239, 239, 0.1);
     box-shadow: 0px 4px 8px rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(10px);
     opacity: 1;
 }
-
+::selection {
+    background-color: darkorange;
+    color: white;
+}
 .navbar .container {
     display: flex;
     justify-content: space-between;
@@ -67,19 +70,23 @@ body {
     text-shadow: rgba(0,0,0,0.9);
     transition: color 0.3s ease;
 }
+.nav-links a.active {
+    color: #E69138; /* Orange */
+    border-bottom: 2px solid #E69138;
+}
 
 .nav-links a.scrolled {
     text-decoration: none;
     margin-right: 50px;
     font-size: 16px;
     font-weight: 800;
-    color: #333;
+    color: #1a1919;
     text-shadow: rgba(0,0,0,0.9);
     transition: color 0.3s ease;
 }
 .navbar .nav-links a:hover {
-    color: #0073b6;
-    border-bottom: 2px solid #0073b6;
+    color: #E69138; /* Orange */
+    border-bottom: 2px solid #E69138;
 }
 
 /* Hero Section with Slider */

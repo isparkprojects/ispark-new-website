@@ -61,6 +61,7 @@ body::-webkit-scrollbar {
 /* Active nav link styling */
 .nav-links a.active {
     color: #E69138; /* Orange */
+    border-bottom: 2px solid #E69138;
 }
 .nav-links a.active.scrolled {
     color: #E69138; /* Orange */
@@ -96,10 +97,12 @@ a, button {
 
 .navbar .nav-links a:hover {
     color: #E69138;
+    border-bottom: 2px solid #E69138;
 }
 
 .navbar .nav-links a.scrolled:hover {
     color: #E69138;
+    border-bottom: 2px solid #E69138;
 }
 
 

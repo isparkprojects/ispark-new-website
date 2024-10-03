@@ -17,12 +17,12 @@
 
     <!-- Header Section -->
     <header class="header" data-aos="fade-down">
-        <div class="container">
-            <div class="logo">
-                <a href="#"><img src="images/ispark.png" alt="iSpark Logo"></a>
-            </div>
-            <nav class="nav" data-aos="fade-left">
-                <ul>
+        <div class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="#"><img src="images/ispark.png" alt="iSpark Logo"></a>
+                </div>
+                <ul class="nav-links">
                     <li><a href="index.html#home">Home</a></li>
                     <li><a href="index.html#about-us">About Us</a></li>
                     <li><a href="index.html#products">Products</a></li>
@@ -30,14 +30,23 @@
                     <li><a href="index.html#workshops">Workshops</a></li>
                     <li><a href="index.html#competition">Competition</a></li>
                 </ul>
-            </nav>
+                <div class="right-buttons">
+                    <a href="login.html" class="login-btn">Login</a>
+                    <a href="login.html?signup" class="btn-signup">Sign Up</a>
+                </div>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" data-aos="zoom-in">
-        <video autoplay muted loop class="hero-video">
-            <source src="videos/hero.mp4" type="video/mp4">
+    <section class="hero-section" data-aos="zoom-in">
+        <video autoplay muted loop class="video-background">
+            <source src="videos/vid.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-overlay" data-aos="fade-out">
