@@ -1,0 +1,526 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f2f5f2;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+.logo img {
+    width: 120px;
+    height: auto;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(241, 239, 239, 0.1);
+    box-shadow: 0px 4px 8px rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-right: 100px;
+
+}
+
+
+
+
+.navbar .nav-links li a {
+    color: white;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.navbar .nav-links li a:hover{
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+}
+
+/* Highlight the active link */
+.nav-links li a.active {
+    color: #ffcc00 !important; /* Color for active link */
+    border-bottom: 2px solid #ffcc00; /* Similar to hover effect */
+}
+
+.menu-icon {
+    display: none;
+}
+
+/* Hero Section */
+.workshop-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/work.avif') center center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 2s ease-out;
+}
+
+.workshop-hero h1 {
+    font-size: 64px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.workshop-hero p {
+    font-size: 24px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background-color: #ffcc00;
+    color: #005fa3;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ffc107;
+}
+
+/* Fade-in animation for hero section */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Workshop Modes */
+.workshop-modes {
+    padding: 50px 20px;
+    background-color: #e3e5e4;
+}
+
+.workshop-modes h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+}
+
+.modes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mode {
+    width: 300px;
+    background-color: #e9f2f9;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.mode:hover {
+    transform: scale(1.05);
+}
+
+.enroll{
+    background-color: #03e9f4;
+    text-decoration: none;
+    color: #050801;
+    border-radius: 10px;
+    padding: 5px  10px;
+
+}
+
+.enroll:hover{
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px  #03e9f4, 0 0 50px #03e9f4, 0 0 200px  #03e9f4;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+
+
+}
+
+/* Workshops List */
+.workshops-list {
+    padding: 1px 20px;
+}
+
+.workshop-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
+}
+
+/* Card Styling */
+.workshop-card {
+    position: relative;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 300px; /* Adjust the height */
+    width: 300px;
+    animation: flipIn 0.6s ease both; /* Apply flip animation */
+    transform-style: preserve-3d; /* Preserve 3D for rotation */
+}
+
+@keyframes flipIn {
+    0% {
+        opacity: 0;
+        transform: rotateY(-90deg); /* Start with a flip from left */
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0); /* End with the card facing front */
+    }
+}
+
+.workshop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: rotateY(180deg); /* Flip on hover */
+}
+
+.card-background {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    transition: background-size 0.3s ease;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 50%, transparent 50%);
+}
+
+.workshop-card:hover .card-background {
+    background-size: 110%; /* Zoom in on hover */
+}
+
+
+
+/* Workshop content */
+.workshop-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content to the bottom */
+    align-items: center;
+    text-align: center;
+    color: white;
+    opacity: 1; /* Show title initially */
+    transition: all 0.3s ease;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent); /* Dark overlay for description */
+    height: 9%; /* Cover 50% of the card */
+}
+
+
+
+.workshop-content h3{
+    position: absolute;
+    bottom: -10px;
+    left: 5px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+.workshop-details{
+    position: absolute;
+    opacity: 0;
+    margin-bottom: 250px;
+    margin-left: -10px;
+    font-size: 12px;
+    font-family: "Lato";
+    font-weight: 900;
+    text-shadow: 4px 8px 12px rgba(0, 0, 0, 0.9);
+    transform: translateY(20px);
+    color: #E69138;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.price{
+    padding: 0px 150px;
+    margin-right: -140px;
+    margin-bottom: -100px;
+    color: #0073b6;
+    font-family: "Lato";
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+.discount{
+    color: rgb(251, 255, 2);
+    opacity: 0.9;
+    font-family: "Lato";
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+}
+
+.workshop-date{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+    font-family: "Lato";
+    font-size: 10px;
+    letter-spacing: 1px;
+    
+}
+
+
+.workshop-date,
+.register-btn {
+    font-size: 10px;
+    margin-top: -65px;
+    padding: 0px 0px 0px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+
+
+.workshop-card:hover .workshop-details,
+.workshop-card:hover .workshop-date,
+.workshop-card:hover .register-btn {
+    opacity: 1;
+    transform: translateY(0);
+    
+}
+
+.workshop-card:hover .workshop-content {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+}
+
+.workshop-card:hover .workshop-content h3 {
+    display: none;
+    margin-bottom: 10px; /* Adjust spacing when showing full content */
+}
+
+
+
+.register-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 1000;
+    font-family: "Lato";
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.register-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Recent Workshops Section */
+.recent-workshops {
+    padding: 50px 20px;
+    background-color: #e3e5e4;
+}
+
+.recent-workshops h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+}
+
+.rworkshop-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.rworkshop-card {
+    width: 400px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.rworkshop-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+}
+
+.rworkshop-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.rworkshop-card:hover img {
+    transform: scale(1.1);
+}
+
+.rworkshop-info {
+    padding: 20px;
+}
+
+.rworkshop-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.rworkshop-info p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Meet Our Trainers Section */
+.trainers {
+    padding: 50px 20px;
+    background-color: #f2f5f2;
+}
+
+.trainers h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+}
+
+.trainer-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.trainer-card {
+    width: 250px;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.trainer-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.trainer-card:hover img {
+    transform: scale(1.1);
+}
+
+.trainer-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Feedback Section */
+.feedback {
+    padding: 50px 20px;
+    background-color: #e3e5e4;
+}
+
+.feedback h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+}
+
+.feedback-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feedback-card {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.feedback-card p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.feedback-card h4 {
+    font-size: 14px;
+    color: #0073b6;
+}
+
+/* Footer */
+footer {
+    background-color: #0073b6;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Scroll Animation */
+.container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-in-out;
+}
+
+.container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .modes, .workshop-cards, .trainer-cards, .feedback-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
