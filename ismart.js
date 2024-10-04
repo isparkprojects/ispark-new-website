@@ -41,3 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Trigger the initial animation on page load
     resetTypewriterAnimation();
 });
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement; // Get the parent FAQ item
+        faqItem.classList.toggle('active'); // Toggle the active class
+    });
+});

@@ -12,7 +12,7 @@ body::-webkit-scrollbar {
 /* Body and Wrapper */
 body {
     font-family: 'Poppins', Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #ccd1d1;
     color: #333;
     overflow-x: hidden;
 }
@@ -193,14 +193,52 @@ body {
     animation: typingTitle 3.5s steps(40, end); /* Adjust the duration as needed */
 }
 
+
+
 /* Typewriter animation without cursor for the title */
 @keyframes typingTitle {
     from { width: 0; }
     to { width: 100%; }
 }
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px; /* Distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    text-align: center;
+    color: white; /* Text color */
+    font-size: 1.2rem; /* Adjust font size as needed */
+}
+
+/* Creating a down arrow using CSS */
+.scroll-arrow {
+    margin-top: 5px; /* Space between text and arrow */
+    position: relative; /* Set position to relative */
+    left: 42%; /* Centering the arrow */
+    transform: translateX(-50%); /* Centering adjustment */
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent; /* Adjust width for arrow size */
+    border-right: 10px solid transparent; /* Adjust width for arrow size */
+    border-top: 15px solid white; /* Color of the arrow */
+    animation: bounce 1s infinite; /* Optional bounce effect */
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Adjust the bounce height */
+    }
+}
+
+
 /* About Us Section */
 .about-us {
-    background-color: #f9f6f6;
+    background-color: #d5dbdb;
     padding: 80px 20px;
     display: flex;
     justify-content: center;
@@ -215,10 +253,11 @@ body {
     align-items: center;
 }
 
-.about-heading {
+.about-text h2 {
     font-size: 2.5rem;
-    color: #7a5a3e;
+    color: #0073b6;
     margin-bottom: 20px;
+    margin-top: -125px;
 }
 
 .about-text p {
@@ -256,9 +295,13 @@ body {
 
 /* Key Features Section */
 .key-features {
-    background-color: #fff;
-    padding: 60px 20px;
+    background-color: #ccd1d1;
+    padding: 40px 20px;
     text-align: center;
+}
+.section-title{
+    color: #0073b6;
+    margin-bottom: 20px;
 }
 
 .features-list {
@@ -270,7 +313,7 @@ body {
 .feature-item {
     padding: 20px;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: #d5dbdb;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -299,7 +342,7 @@ body {
 
 /* Testimonials Section */
 .testimonials {
-    background-color: #f9f6f6;
+    background-color: #d5dbdb;
     padding: 80px 20px;
 }
 
@@ -382,10 +425,255 @@ body {
     transform: translateY(0);
 }
 
+/* Educational Impact Section */
+.impact {
+    background-color: #d5dbdb;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.impact h2 {
+    font-size: 2.5rem;
+    color: #0073b6;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Make it more prominent */
+}
+
+.impact p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.impact blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #0073b6;
+    background-color: #ccd1d1;
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 10px 20px;
+    border-left: 4px solid #E69138; /* Decorative border */
+    border-right: 4px solid #E69138; /* Decorative border */
+}
+
+/* How iSmart Works Section */
+.how-it-works {
+    padding: 60px 20px;
+}
+
+.how-it-works .content-wrapper {
+    display: flex; /* Flexbox for horizontal layout */
+    align-items: center; /* Center vertically */
+    justify-content: flex-start; /* Align to the left */
+}
+
+/* Image Container */
+.image-container {
+    flex: 0 0 40%; /* Fixed width for image */
+    margin-right: 20px; /* Space between image and text */
+}
+
+.image-container img {
+    width: 100%; /* Responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Text Container */
+.text-container {
+    flex: 1; /* Take remaining space */
+}
+
+.text-container .section-title {
+    font-size: 2.5rem;
+    color: #0073b6;
+    margin-bottom: 20px; /* Space below title */
+    text-transform: uppercase; /* Emphasize heading */
+}
+
+.text-container p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    text-align: justify; /* Justify text for better alignment */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .how-it-works .content-wrapper {
+        flex-direction: column; /* Stack image and text on smaller screens */
+        align-items: center; /* Center items */
+    }
+    
+    .image-container {
+        margin-right: 0; /* Remove margin on smaller screens */
+        margin-bottom: 20px; /* Space below the image */
+        flex: 0 0 70%; /* Make the image larger on smaller screens */
+    }
+}
+/* Frequently Asked Questions Section */
+.faq {
+    padding: 80px 20px;
+    text-align: left; /* Align text to the left */
+    margin: 20px 0; /* Space above and below */
+}
+
+.faq h2 {
+    font-size: 2.5rem; /* Larger heading */
+    color: #0073b6;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Emphasize heading */
+}
+
+.faq-item {
+    margin-bottom: 20px; /* Spacing between questions */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.faq-question {
+    font-size: 1.5rem; /* Larger question text */
+    color: #333; /* Dark text color */
+    display: flex; /* Flexbox for arrow alignment */
+    justify-content: space-between; /* Space between question text and arrow */
+    align-items: center; /* Center vertically */
+}
+
+.arrow {
+    font-size: 1.2rem; /* Arrow size */
+    transition: transform 0.3s ease; /* Transition for rotation */
+}
+
+.faq-answer {
+    font-size: 1rem; /* Standard paragraph size */
+    color: #666; /* Lighter text for answers */
+    line-height: 1.5; /* Increased line height for readability */
+    display: none; /* Hide answers by default */
+    margin-top: 10px; /* Space above the answer */
+}
+
+/* Show answer on question click */
+.faq-item.active .faq-answer {
+    display: block; /* Show the answer when active */
+}
+
+/* Rotate arrow when active */
+.faq-item.active .arrow {
+    transform: rotate(180deg); /* Rotate the arrow */
+}
+
+/* Blog Section */
+.blog {
+    background-color: #d5dbdb;
+    padding: 80px 20px;
+}
+
+.blog h2 {
+    font-size: 2.5rem;
+    color: #0073b6;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Make it more prominent */
+}
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.blog-post {
+    background-color: #ccd1d1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.blog-post h3 {
+    font-size: 1.5rem;
+    color: #0073b6;
+    margin-bottom: 10px;
+}
+
+.blog-post p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Call to Action Section */
+.call-to-action {
+    color: rgb(10, 10, 10);
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.call-to-action h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.call-to-action p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Contact Section */
+.contact {
+    background-color: #d5dbdb;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    color: #0073b6;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Make it more prominent */
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    background-color: #bfc9ca;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.contact-form button {
+    background-color: #ef7c00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #d96500;
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
 /* Footer */
 footer {
-    background-color: #0073b6;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding: 30px;
     margin-top: 40px;
@@ -393,4 +681,36 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+footer .social-media {
+    margin-top: 10px;
+}
+
+footer .social-media a {
+    color: rgb(0, 0, 0);
+    margin: 0 10px;
+    font-size: 1.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .features-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .testimonials-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .blog-posts {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+    .key-features, .impact, .how-it-works, .blog {
+        padding: 40px 20px;
+    }
+    .call-to-action {
+        padding: 40px 20px;
+    }
 }

@@ -857,7 +857,7 @@ a, button {
 }
 
 .profile-info h4 {
-    font-size: 1.2rem; /* Adjust font size */
+    font-size: 1 rem; /* Adjust font size */
     margin: 3px 0; /* Margin between elements */
     bottom: 10px;
     margin-top: -10px;

@@ -22,6 +22,7 @@ body:before {
     right: -20px; /* Extend beyond viewport to hide the scrollbar */
     bottom: 0;
     overflow-y: scroll; /* Allow scrolling */
+    overflow-x: hidden;
     z-index: -1; /* Hide behind content */
 }
 body::-webkit-scrollbar {
