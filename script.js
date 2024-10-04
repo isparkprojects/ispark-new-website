@@ -9,7 +9,7 @@ mobileMenu.addEventListener('click', () => {
 // Scroll event listener for navbar and sections
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
-    const navLinkElements = document.querySelectorAll('.nav-links a');
+    const navLinkElements = document.querySelectorAll('.nav-links a:not(.get-app)'); // Exclude Get App link
     const sections = document.querySelectorAll('.two-column-section, .mission, .vision, .product-card'); // Target the sections you want to animate
     const contactBoxes = document.querySelectorAll('footer .contact-box');
 
@@ -77,13 +77,12 @@ window.addEventListener('scroll', () => {
 
 // Add this part to track active section and highlight the corresponding nav link
 const allSections = document.querySelectorAll('section');
-const navLinksArray = document.querySelectorAll('.nav-links a');
+const navLinksArray = document.querySelectorAll('.nav-links a:not(.get-app)'); // Exclude Get App link
 
 const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                console.log(`Section ${entry.target.id} is intersecting`); // Debugging
                 navLinksArray.forEach((link) => {
                     link.classList.remove('active'); // Remove the active class from all links
                     if (link.getAttribute('href').substring(1) === entry.target.id) {
@@ -132,12 +131,12 @@ window.addEventListener('load', () => {
     });
 });
 
+// Handle scrolling animation
 let isScrolling = false;
 
 window.addEventListener('scroll', () => {
     if (!isScrolling) {
         window.requestAnimationFrame(() => {
-            // Perform your scroll actions here
             isScrolling = false;
         });
     }
