@@ -714,3 +714,48 @@ footer .social-media a {
         padding: 40px 20px;
     }
 }
+/* Slide animations */
+.slide-left-in {
+    animation: slideLeftIn 0.5s forwards; /* Slide left in animation */
+}
+
+.slide-right-in {
+    animation: slideRightIn 0.5s forwards; /* Slide right in animation */
+}
+
+.slide-out {
+    animation: slideOut 0.5s forwards; /* Slide out animation */
+}
+
+@keyframes slideLeftIn {
+    from {
+        transform: translateX(-100%); /* Start 100% to the left */
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        transform: translateX(0); /* Move to original position */
+        opacity: 1; /* Fade in */
+    }
+}
+
+@keyframes slideRightIn {
+    from {
+        transform: translateX(100%); /* Start 100% to the right */
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        transform: translateX(0); /* Move to original position */
+        opacity: 1; /* Fade in */
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0); /* Start at original position */
+        opacity: 1; /* Start visible */
+    }
+    to {
+        transform: translateX(100%); /* Move 100% to the right */
+        opacity: 0; /* Fade out */
+    }
+}
