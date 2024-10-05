@@ -58,10 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Sticky Header on Scroll
     window.addEventListener('scroll', () => {
         const header = document.querySelector('.navbar');
-        header.classList.toggle('scrolled', window.scrollY > 50);
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        // Add 'scrolled' class to header and nav links if scrolled past 50px
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+            navLinks.forEach(link => link.classList.add('scrolled'));
+        } else {
+            header.classList.remove('scrolled');
+            navLinks.forEach(link => link.classList.remove('scrolled'));
+        }
     });
 });
 
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -70,6 +80,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+// Toggle Courses
 document.getElementById('online-courses-btn').addEventListener('click', function() {
     document.getElementById('online-courses').style.display = 'block';
     document.getElementById('offline-courses').style.display = 'none'; // Hide offline
