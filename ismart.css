@@ -262,6 +262,7 @@ body {
 
 .about-text p {
     font-size: 1.2rem;
+    text-align: justify;
     color: #333;
     line-height: 1.6;
     margin-bottom: 20px;
@@ -274,24 +275,90 @@ body {
 }
 
 /* Get in Touch Button */
-.btn-cta {
+.git {
+    position: relative;
     display: inline-block;
-    padding: 15px 30px;
-    background-color: #0073b6; /* Primary color */
-    color: white;
-    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    margin-top: 20px;
+    margin-bottom: -20px;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    width: 12rem;
+    height: auto;
+}
+  
+.git .circle {
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #0073b6; /* Dark color for the button */
+    border-radius: 1.625rem;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+}
+  
+.git .icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff; /* Arrow color */
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+}
+  
+.git .icon.arrow {
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+  
+.git .icon.arrow::before {
+    content: '';
+    position: absolute;
+    top: -0.25rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+}
+  
+.git .button-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin-left: 1.85rem;
+    color: #0073b6; /* Dark text color */
     font-weight: 700;
-    text-decoration: none;
-    border-radius: 50px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+}
+  
+/* Hover effect */
+.git:hover .circle {
+    width: 100%;
+}
+  
+.git:hover .icon.arrow {
+    transform: translate(1rem, 0);
+}
+  
+.git:hover .button-text {
+    color: #fff; /* Change text color to white on hover */
 }
 
-.btn-cta:hover {
-    background-color: #005f8d; /* Darker shade on hover */
-    transform: translateY(-3px); /* Slight lift effect */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-}
 
 /* Key Features Section */
 .key-features {
@@ -514,44 +581,50 @@ body {
         flex: 0 0 70%; /* Make the image larger on smaller screens */
     }
 }
-/* Frequently Asked Questions Section */
 .faq {
-    padding: 80px 20px;
-    text-align: left; /* Align text to the left */
-    margin: 20px 0; /* Space above and below */
+    margin: 20px auto;
+    max-width: 800px; /* Centering the FAQ section */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #d5dbdb; /* White background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px; /* Padding inside the FAQ section */
 }
 
-.faq h2 {
-    font-size: 2.5rem; /* Larger heading */
-    color: #0073b6;
+.section-title {
+    font-size: 2rem;
+    color: #0073b6; /* Main color */
     margin-bottom: 20px;
-    text-transform: uppercase; /* Emphasize heading */
+    text-align: center; /* Centered title */
+    text-transform: uppercase; /* Make it more prominent */
 }
 
 .faq-item {
-    margin-bottom: 20px; /* Spacing between questions */
-    cursor: pointer; /* Change cursor to pointer */
+    margin: 10px 0; /* Space between items */
 }
 
 .faq-question {
-    font-size: 1.5rem; /* Larger question text */
-    color: #333; /* Dark text color */
-    display: flex; /* Flexbox for arrow alignment */
-    justify-content: space-between; /* Space between question text and arrow */
+    cursor: pointer; /* Pointer on hover */
+    background-color: #0073b6; /* Button color */
+    color: white; /* White text */
+    padding: 15px; /* Inner padding */
+    border-radius: 5px; /* Rounded corners */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between text and arrow */
     align-items: center; /* Center vertically */
+}
+
+.faq-answer {
+    display: none; /* Hidden by default */
+    padding: 15px; /* Inner padding */
+    border-left: 3px solid #0073b6; /* Left border */
+    background-color: #f9f9f9; /* Background for answer */
+    border-radius: 0 0 5px 5px; /* Rounded corners at bottom */
+    margin-top: 5px; /* Space above answer */
 }
 
 .arrow {
     font-size: 1.2rem; /* Arrow size */
     transition: transform 0.3s ease; /* Transition for rotation */
-}
-
-.faq-answer {
-    font-size: 1rem; /* Standard paragraph size */
-    color: #666; /* Lighter text for answers */
-    line-height: 1.5; /* Increased line height for readability */
-    display: none; /* Hide answers by default */
-    margin-top: 10px; /* Space above the answer */
 }
 
 /* Show answer on question click */
@@ -563,7 +636,6 @@ body {
 .faq-item.active .arrow {
     transform: rotate(180deg); /* Rotate the arrow */
 }
-
 /* Blog Section */
 .blog {
     background-color: #d5dbdb;
@@ -607,27 +679,29 @@ body {
     color: #666;
 }
 
-/* Call to Action Section */
-.call-to-action {
-    color: rgb(10, 10, 10);
-    padding: 80px 20px;
-    text-align: center;
-    border-radius: 10px; /* Rounded corners */
+.btn-cta {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #0073b6; /* Primary color */
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.call-to-action h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+.btn-cta:hover {
+    background-color: #005f8d; /* Darker shade on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
-.call-to-action p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
 
 /* Contact Section */
 .contact {
-    background-color: #d5dbdb;
+    background-color: #ccd1d1;
     padding: 80px 20px;
     text-align: center;
 }
@@ -671,27 +745,88 @@ body {
     transform: translateY(-3px); /* Slight lift effect */
 }
 
-/* Footer */
 footer {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 30px;
-    margin-top: 40px;
+    background-color: #d5dbdb; /* Dark background similar to the example */
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #000000; /* White text */
+    padding: 40px 20px; /* Padding for space */
+    text-align: left; /* Align text to the left */
 }
 
-footer p {
-    margin: 0;
+.footer-content {
+    display: flex; /* Flex layout for footer content */
+    justify-content: space-between; /* Space out columns */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
-footer .social-media {
-    margin-top: 10px;
+.footer-column {
+    flex: 1; /* Allow columns to grow */
+    margin: 10px; /* Add margin between columns */
+    text-align: justify;
 }
 
-footer .social-media a {
-    color: rgb(0, 0, 0);
-    margin: 0 10px;
-    font-size: 1.5rem;
+.footer-column h4 {
+    color: #0073b6; /* Header color */
+    margin-bottom: 10px;
 }
+
+.footer-column ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.footer-column ul li {
+    margin-bottom: 5px; /* Space between items */
+}
+
+.footer-column ul li a {
+    color: #000000; /* Link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Transition effect for hover */
+}
+
+.footer-column ul li a:hover {
+    color: #0073b6; /* Change link color on hover */
+}
+
+.social-links {
+    display: flex; /* Flex layout for social icons */
+    margin-top: 10px; /* Add space above social links */
+}
+
+.social-links a {
+    margin-right: 15px; /* Space between icons */
+    color: #000000; /* Icon color */
+    font-size: 20px; /* Size of icons */
+    text-decoration: none;
+    transition: color 0.3s; /* Transition for hover effect */
+    
+    /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Semi-transparent white border */
+    border-radius: 50%; /* Circular shape */
+    padding: 10px; /* Space inside the circle */
+    backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    display: flex; /* Ensure icons are centered */
+    justify-content: center; /* Center the icon */
+    align-items: center; /* Center the icon */
+    width: 40px; /* Set a fixed width for the circular effect */
+    height: 40px; /* Set a fixed height for the circular effect */
+}
+
+.social-links a:hover {
+    color: #0073b6; /* Change icon color on hover */
+    background: rgba(255, 255, 255, 0.3); /* Change background on hover */
+    border: 2px solid rgba(255, 255, 255, 0.6); /* Darker border on hover */
+}
+
+.footer-bottom {
+    text-align: center; /* Center text in the bottom section */
+    margin-top: 20px; /* Space above footer text */
+    font-size: 14px; /* Font size for footer text */
+}
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {

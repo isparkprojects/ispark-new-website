@@ -12,6 +12,7 @@ body {
     position: relative; /* Required for pseudo-element positioning */
     background-color: #ccd1d1;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 body:before {
@@ -28,21 +29,21 @@ body:before {
 body::-webkit-scrollbar {
     display: none;
 }
-/* Container */
 
-.header{
+/* Header */
+.header {
     position: fixed;
     width: 100%;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
 }
-.header.scrolled{
+.header.scrolled {
     background-color: rgba(241, 239, 239, 0.1);
     box-shadow: 0px 4px 8px rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(10px);
     color: #1a1919 !important;
-    opacity: 1;
 }
+
 /* Navbar */
 .navbar {
     position: fixed;
@@ -274,70 +275,262 @@ button {
     background-color: #d96b00;
 }
 
-/* Courses Section */
-.courses-section {
-    padding: 100px 0 60px 0;
-    background-color: #f9f9f9;
-}
 
-.section-title {
-    font-size: 2.5rem;
-    color: #0073b6;
+.scroll-down {
+    position: absolute;
+    bottom: 30px; /* Distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
     text-align: center;
-    margin-bottom: 50px;
+    color: white; /* Text color */
+    font-size: 1.2rem; /* Adjust font size as needed */
 }
 
-/* Course Card */
+/* Creating a down arrow using CSS */
+.scroll-arrow {
+    margin-top: 5px; /* Space between text and arrow */
+    position: relative; /* Set position to relative */
+    left: 42%; /* Centering the arrow */
+    transform: translateX(-50%); /* Centering adjustment */
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent; /* Adjust width for arrow size */
+    border-right: 10px solid transparent; /* Adjust width for arrow size */
+    border-top: 15px solid white; /* Color of the arrow */
+    animation: bounce 1s infinite; /* Optional bounce effect */
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Adjust the bounce height */
+    }
+}
+
+
+
+/* Course Modes */
+.course-modes {
+    padding: 50px 20px;
+    background-color: #e3e5e4;
+}
+
+.course-modes h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+}
+
+.modes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.mode {
+    width: 300px;
+    background-color: #e9f2f9;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.mode:hover {
+    transform: scale(1.05);
+}
+
+.enroll {
+    background-color: #03e9f4;
+    text-decoration: none;
+    color: #050801;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.enroll:hover {
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px #03e9f4;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+/* Courses List */
+.courses-list {
+    padding: 1px 20px;
+}
+
+.course-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* Card Styling */
 .course-card {
+    position: relative;
     background-color: #fff;
     border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 300px; /* Adjust the height */
+    width: 300px;
+    animation: flipIn 0.6s ease both; /* Apply flip animation */
+    transform-style: preserve-3d; /* Preserve 3D for rotation */
+}
+
+@keyframes flipIn {
+    0% {
+        opacity: 0;
+        transform: rotateY(-90deg); /* Start with a flip from left */
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0); /* End with the card facing front */
+    }
 }
 
 .course-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: rotateY(180deg); /* Flip on hover */
 }
 
-.course-image {
+.card-background {
+    position: relative;
+    background-size: cover;
+    background-position: center;
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    transition: background-size 0.3s ease;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 50%, transparent 50%);
 }
 
+.course-card:hover .card-background {
+    background-size: 110%; /* Zoom in on hover */
+}
+
+/* Course content */
 .course-content {
-    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content to the bottom */
+    align-items: center;
     text-align: center;
+    color: white;
+    opacity: 1; /* Show title initially */
+    transition: all 0.3s ease;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent); /* Dark overlay for description */
+    height: 9%; /* Cover 50% of the card */
 }
 
 .course-content h3 {
-    font-size: 1.5rem;
+    position: absolute;
+    bottom: -10px;
+    left: 5px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+.course-details {
+    position: absolute;
+    opacity: 0;
+    margin-bottom: 250px;
+    margin-left: -10px;
+    font-size: 12px;
+    font-family: "Lato";
+    font-weight: 900;
+    text-shadow: 4px 8px 12px rgba(0, 0, 0, 0.9);
+    color: #E69138;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.price {
+    padding: 0px 150px;
+    margin-right: -140px;
+    margin-bottom: -100px;
     color: #0073b6;
-    margin-bottom: 15px;
+    font-family: "Lato";
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+.discount {
+    color: rgb(251, 255, 2);
+    opacity: 0.9;
+    font-family: "Lato";
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
 }
 
-.course-content p {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 20px;
+.course-date {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+    font-family: "Lato";
+    font-size: 10px;
+    letter-spacing: 1px;
 }
 
-.btn-secondary {
-    background-color: #0073b6;
-    color: #fff;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 25px;
+.course-date,
+.register-btn {
+    font-size: 10px;
+    margin-top: -65px;
+    padding: 0px 0px 0px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.course-card:hover .course-details,
+.course-card:hover .course-date,
+.course-card:hover .register-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.course-card:hover .course-content {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+}
+
+.course-card:hover .course-content h3 {
+    display: none;
+    margin-bottom: 10px; /* Adjust spacing when showing full content */
+}
+
+.register-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 1000;
+    font-family: "Lato";
     text-decoration: none;
-    font-size: 0.9rem;
+    letter-spacing: 2px;
     transition: background-color 0.3s ease;
+    margin-bottom: 10px;
 }
 
-.btn-secondary:hover {
-    background-color: #005f8a;
+.register-btn:hover {
+    background-color: #0056b3;
 }
+
+
 
 /* Testimonials Section */
 .testimonials-section {
@@ -471,4 +664,7 @@ footer {
     .menu-toggle {
         display: flex; /* Show hamburger icon */
     }
+}
+#online-courses, #offline-courses {
+    display: none; /* Hide both sections by default */
 }

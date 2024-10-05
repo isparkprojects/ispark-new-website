@@ -7,6 +7,7 @@
     <title>iSmart</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="ismart.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/bodymovin.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -23,8 +24,8 @@
                     <li><a href="courses.html">Courses</a></li>
                     <li><a href="workshops.html">Workshops</a></li>
                     <li><a href="competition.html">Competition</a></li>
-                    <li><a href="index.html#contact">Contact us</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Blogs</a></li>
+                    <li><a href="#contact">Contact us</a></li>
                 </ul>
             </div>
         </nav>
@@ -70,7 +71,12 @@
                     <p>
                         iSmart enhances the learning experience by adapting to each student's unique learning style, ensuring that education is both effective and enjoyable.
                     </p>
-                    <a href="#contact" class="btn-cta">Get In Touch</a>
+                    <a href="#contact" class="git">
+                        <span class="circle" aria-hidden="true">
+                            <span class="icon arrow"></span>
+                        </span>
+                        <span class="button-text">Get In Touch</span>
+                    </a>
                 </div>
                 <div class="about-image">
                     <img src="images/ismart1.jpg" alt="About iSmart" />
@@ -195,44 +201,67 @@
             </div>
         </section>
 
-        <!-- FAQs Section -->
-<section class="faq">
-    <div class="container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <h3 class="faq-question">How does iSmart interact with students? <span class="arrow">▼</span></h3>
-            <p class="faq-answer">iSmart uses voice commands and gestures to create an engaging learning environment.</p>
-        </div>
-        <div class="faq-item">
-            <h3 class="faq-question">What subjects can iSmart teach? <span class="arrow">▼</span></h3>
-            <p class="faq-answer">iSmart is capable of teaching a wide range of subjects including math, science, and languages.</p>
-        </div>
-        <div class="faq-item">
-            <h3 class="faq-question">Is iSmart suitable for all grade levels? <span class="arrow">▼</span></h3>
-            <p class="faq-answer">Yes, iSmart is designed to cater to various educational levels, from elementary to high school.</p>
-        </div>
-        <div class="faq-item">
-            <h3 class="faq-question">Can iSmart be integrated into existing curriculums? <span class="arrow">▼</span></h3>
-            <p class="faq-answer">Absolutely! iSmart can be customized to fit within existing educational frameworks.</p>
-        </div>
-        <div class="faq-item">
-            <h3 class="faq-question">What kind of support is available for iSmart users? <span class="arrow">▼</span></h3>
-            <p class="faq-answer">We offer comprehensive training and support to ensure effective implementation of iSmart.</p>
-        </div>
-        <div class="faq-item">
-            <h3 class="faq-question">Is iSmart safe for children? <span class="arrow">▼</span></h3>
-            <p class="faq-answer">Yes, iSmart is designed with safety in mind, ensuring a secure learning environment for children.</p>
-        </div>
-        <div class="faq-item">
-            <h3 class="faq-question">How can I purchase iSmart? <span class="arrow">▼</span></h3>
-            <p class="faq-answer">You can contact us directly to discuss purchasing options and pricing.</p>
-        </div>
-        <div class="faq-item">
-            <h3 class="faq-question">How long is the warranty for iSmart? <span class="arrow">▼</span></h3>
-            <p class="faq-answer">iSmart comes with a one-year warranty covering parts and labor.</p>
-        </div>
-    </div>
-</section>
+        <section class="faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <h3>How does iSmart interact with students?</h3>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <p class="faq-answer">iSmart uses voice commands and gestures to create an engaging learning environment.</p>
+                </div>
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <h3>What subjects can iSmart teach?</h3>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <p class="faq-answer">iSmart is capable of teaching a wide range of subjects including math, science, and languages.</p>
+                </div>
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <h3>Is iSmart suitable for all grade levels?</h3>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <p class="faq-answer">Yes, iSmart is designed to cater to various educational levels, from elementary to high school.</p>
+                </div>
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <h3>Can iSmart be integrated into existing curriculums?</h3>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <p class="faq-answer">Absolutely! iSmart can be customized to fit within existing educational frameworks.</p>
+                </div>
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <h3>What kind of support is available for iSmart users?</h3>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <p class="faq-answer">We offer comprehensive training and support to ensure effective implementation of iSmart.</p>
+                </div>
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <h3>Is iSmart safe for children?</h3>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <p class="faq-answer">Yes, iSmart is designed with safety in mind, ensuring a secure learning environment for children.</p>
+                </div>
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <h3>How can I purchase iSmart?</h3>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <p class="faq-answer">You can contact us directly to discuss purchasing options and pricing.</p>
+                </div>
+                <div class="faq-item" onclick="toggleAnswer(this)">
+                    <div class="faq-question">
+                        <h3>How long is the warranty for iSmart?</h3>
+                        <span class="arrow">▼</span>
+                    </div>
+                    <p class="faq-answer">iSmart comes with a one-year warranty covering parts and labor.</p>
+                </div>
+            </div>
+        </section>
 
 
         <!-- Blog Section -->
@@ -263,16 +292,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Call to Action Section -->
-        <section class="call-to-action">
-            <div class="container">
-                <h2>Ready to Transform Education?</h2>
-                <p>Schedule a demo of iSmart today!</p>
-                <a href="#contact" class="btn-cta">Book a Demo</a>
-            </div>
-        </section>
-
         <!-- Contact Section -->
         <section id="contact" class="contact">
             <div class="container">
@@ -287,18 +306,56 @@
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-content">
-                <p>&copy; 2024 iSpark Learning Solutions Pvt Ltd. All rights reserved.</p>
-                <div class="social-media">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
+        <!-- Footer Section -->
+<footer id="contact">
+    <div class="footer-content">
+        <div class="footer-column">
+            <h4 style="color: #0073b6;">Company</h4>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about-us">About Us</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="competition.html">Competitions</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4 style="color: #0073b6;">Services</h4>
+            <ul>
+                <li><a href="#">STEM Programs</a></li>
+                <li><a href="#">Robotics Workshops</a></li>
+                <li><a href="#">Coding Classes</a></li>
+                <li><a href="#">AI and ML Workshops</a></li>
+                <li><a href="#">Online Learning Resources</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4 style="color: #0073b6;">Contacts</h4>
+            <p>Phone: +91 8825777976</p>
+            <p>Email: <a href="mailto:support@isparklearning.com">support@isparklearning.com</a></p>
+            <p>Address: No.53/10 Soundraya colony, 7th Avenue, Anna Nagar, West Extension, Chennai-600101, Tamil Nadu</p>
+        </div>
+
+        <div class="footer-column">
+            <h4 style="color: #0073b6;">Follow Us</h4>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
-        </footer>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 iSpark Learning Solutions Pvt Ltd. All rights reserved.</p>
+    </div>
+</footer>
+
     </div>
     <script src="ismart.js"></script>
 </body>

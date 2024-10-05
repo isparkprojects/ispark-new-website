@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses - iSpark Innovators</title>
+    <link rel="icon" href="images/circle-logo.png" type="image/png"> <!-- Favicon -->
+    <title>Courses - iSpark</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- AOS CSS -->
@@ -56,65 +57,200 @@
                 <a href="#courses" class="btn-primary" data-aos="zoom-out">Explore Courses</a>
             </div>
         </div>
+        <!-- Scroll Down Section -->
+        <div class="scroll-down">
+            <p>Scroll Down</p>
+            <div class="scroll-arrow"></div>
+        </div>
     </section>
 
-    <!-- Courses Section -->
-    <section class="courses-section" id="courses">
+    <!-- Course Modes Section -->
+    <section class="course-modes">
         <div class="container">
-            <h2 class="section-title" data-aos="slide-up">Our Courses</h2>
-            <div class="swiper-container courses-carousel" data-aos="fade-up" data-aos-delay="200">
-                <div class="swiper-wrapper">
-                    <!-- Course Slide 1 -->
-                    <div class="swiper-slide" data-aos="slide-right">
-                        <div class="course-card">
-                            <img src="images/python.jpg" alt="Python Basics" class="course-image">
-                            <div class="course-content">
-                                <h3 data-aos="zoom-in">Python Basics</h3>
-                                <p>Master Python programming from the ground up.</p>
-                                <a href="#" class="btn-secondary" data-aos="fade-right">Enroll Now - ₹200</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Course Slide 2 -->
-                    <div class="swiper-slide" data-aos="slide-left">
-                        <div class="course-card">
-                            <img src="images/data-science.jpg" alt="Data Science" class="course-image">
-                            <div class="course-content">
-                                <h3 data-aos="zoom-in">Data Science</h3>
-                                <p>Learn data science concepts and applications.</p>
-                                <a href="#" class="btn-secondary" data-aos="fade-left">Enroll Now - ₹300</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Course Slide 3 -->
-                    <div class="swiper-slide" data-aos="slide-right">
-                        <div class="course-card">
-                            <img src="images/ml.jpg" alt="Machine Learning" class="course-image">
-                            <div class="course-content">
-                                <h3 data-aos="zoom-in">Machine Learning</h3>
-                                <p>Understand the fundamentals of Machine Learning.</p>
-                                <a href="#" class="btn-secondary" data-aos="fade-right">Enroll Now - ₹350</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Course Slide 4 -->
-                    <div class="swiper-slide" data-aos="slide-left">
-                        <div class="course-card">
-                            <img src="images/web.png" alt="Web Development" class="course-image">
-                            <div class="course-content">
-                                <h3 data-aos="zoom-in">Web Development</h3>
-                                <p>Build modern websites using HTML, CSS, and JavaScript.</p>
-                                <a href="#" class="btn-secondary" data-aos="fade-left">Enroll Now - ₹400</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Add more slides as needed -->
+            <h2>Course Formats</h2>
+            <div class="modes">
+                <div class="mode" id="online-courses-btn">
+                    <h3>Online Courses</h3>
+                    <p>Attend our courses from the comfort of your home or school, with live interactive sessions.</p>
+                    <a class="enroll" href="#online-courses">Enroll Now</a>
                 </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-                <!-- Add Navigation -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="mode" id="offline-courses-btn">
+                    <h3>Offline Courses</h3>
+                    <p>Join us for hands-on experience in our offline courses conducted at various locations.</p>
+                    <a class="enroll" href="#offline-courses">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Courses List -->
+    <section class="courses-list" id="online-courses">
+        <div class="container">
+            <h2>Online Courses</h2>
+            <div class="course-cards">
+                <div class="course-card">
+                    <div class="card-background" style="background-image: url('images/ai1.avif');">
+                        <div class="course-content">
+                            <h3>AI for Kids</h3>
+                            <div class="course-details">
+                                <span>10:00 AM IST</span>
+                                <span class="price"><del class="discount" data-v-203e6d58="">₹499</del> ₹99</span>
+                            </div>
+                            <div class="course-date">
+                                <p>Sunday, September 15, 2024</p>
+                            </div>
+                            <a href="#" class="register-btn">Register</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="card-image-container">
+                        <img src="images/robot.avif" alt="Introduction to Robotics" class="card-image">
+                        <div class="image-text">Intro to Robotics</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Introduction to Robotics</h3>
+                        <div class="course-details">
+                            <span>10:00 AM IST</span>
+                            <span class="price"><del class="discount" data-v-203e6d58="">₹499</del> ₹99</span>
+                        </div>
+                        <div class="course-date">
+                            <p>Sunday, September 15, 2024</p>
+                        </div>
+                        <a href="#" class="register-btn">Register</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="card-image-container">
+                        <img src="images/web3.avif" alt="Web Development Basics" class="card-image">
+                        <div class="image-text">Web Dev Basics</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Web Development Basics</h3>
+                        <div class="course-details">
+                            <span>10:00 AM IST</span>
+                            <span class="price"><del class="discount" data-v-203e6d58="">₹499</del> ₹99</span>
+                        </div>
+                        <div class="course-date">
+                            <p>Sunday, September 15, 2024</p>
+                        </div>
+                        <a href="#" class="register-btn">Register</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="card-image-container">
+                        <img src="images/web3.avif" alt="Data Science" class="card-image">
+                        <div class="image-text">Data Science</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Data Science</h3>
+                        <div class="course-details">
+                            <span>10:00 AM IST</span>
+                            <span class="price"><del class="discount" data-v-203e6d58="">₹499</del> ₹99</span>
+                        </div>
+                        <div class="course-date">
+                            <p>Sunday, September 15, 2024</p>
+                        </div>
+                        <a href="#" class="register-btn">Register</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="card-image-container">
+                        <img src="images/web3.avif" alt="Ethical Hacking" class="card-image">
+                        <div class="image-text">Ethical Hacking</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Ethical Hacking</h3>
+                        <div class="course-details">
+                            <span>10:00 AM IST</span>
+                            <span class="price"><del class="discount" data-v-203e6d58="">₹499</del> ₹99</span>
+                        </div>
+                        <div class="course-date">
+                            <p>Sunday, September 15, 2024</p>
+                        </div>
+                        <a href="#" class="register-btn">Register</a>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="card-image-container">
+                        <img src="images/web3.avif" alt="Machine Learning" class="card-image">
+                        <div class="image-text">Machine Learning</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Machine Learning</h3>
+                        <div class="course-details">
+                            <span>10:00 AM IST</span>
+                            <span class="price"><del class="discount" data-v-203e6d58="">₹499</del> ₹99</span>
+                        </div>
+                        <div class="course-date">
+                            <p>Sunday, September 15, 2024</p>
+                        </div>
+                        <a href="#" class="register-btn">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offline Courses List -->
+    <section class="courses-list" id="offline-courses">
+        <div class="container">
+            <h2>Offline Courses</h2>
+            <div class="course-cards">
+                <div class="course-card">
+                    <div class="card-image-container">
+                        <img src="images/ai1.avif" alt="AI for Kids" class="card-image">
+                        <div class="image-text">AI for Kids</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>AI for Kids</h3>
+                        <div class="course-details">
+                            <span>10:00 AM IST</span>
+                            <span class="price"><del class="discount" data-v-203e6d58="">₹499</del> ₹99</span>
+                        </div>
+                        <div class="course-date">
+                            <p>Sunday, September 15, 2024</p>
+                        </div>
+                        <a href="#" class="register-btn">Register</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="card-image-container">
+                        <img src="images/robot.avif" alt="Introduction to Robotics" class="card-image">
+                        <div class="image-text">Intro to Robotics</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Introduction to Robotics</h3>
+                        <div class="course-details">
+                            <span>10:00 AM IST</span>
+                            <span class="price"><del class="discount" data-v-203e6d58="">₹499</del> ₹99</span>
+                        </div>
+                        <div class="course-date">
+                            <p>Sunday, September 15, 2024</p>
+                        </div>
+                        <a href="#" class="register-btn">Register</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="card-image-container">
+                        <img src="images/robot.avif" alt="Introduction to Robotics" class="card-image">
+                        <div class="image-text">Intro to Robotics</div>
+                    </div>
+                    <div class="course-content">
+                        <h3>Introduction to Robotics</h3>
+                        <div class="course-details">
+                            <span>10:00 AM IST</span>
+                            <span class="price"><del class="discount" data-v-203e6d58="">₹499</del> ₹99</span>
+                        </div>
+                        <div class="course-date">
+                            <p>Sunday, September 15, 2024</p>
+                        </div>
+                        <a href="#" class="register-btn">Register</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

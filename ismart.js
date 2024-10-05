@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
     });
-
     // FAQ toggle functionality
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
