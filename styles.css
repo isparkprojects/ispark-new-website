@@ -1175,12 +1175,15 @@ a, button {
     }
 }
 
+/* Footer Section */
 footer {
-    background-color: #d5dbdb; /* Dark background similar to the example */
+    background-color: #ccd1d1; /* Dark background similar to the example */
     font-family: 'Poppins', Arial, sans-serif;
     color: #000000; /* White text */
     padding: 40px 20px; /* Padding for space */
     text-align: left; /* Align text to the left */
+    padding-top: -50px; /* Reduce the top padding of the footer */
+    margin-top: -20px; /* Ensure no margin at the top */
 }
 
 .footer-content {
@@ -1224,12 +1227,13 @@ footer {
     margin-top: 10px; /* Add space above social links */
 }
 
-.social-links a {
+/* More specific social link styles */
+.footer-column .social-links a {
     margin-right: 15px; /* Space between icons */
-    color: #000000; /* Icon color */
+    color: #000000 !important; /* Ensure icon color is black by default */
     font-size: 20px; /* Size of icons */
     text-decoration: none;
-    transition: color 0.3s; /* Transition for hover effect */
+    transition: color 0.3s, background 0.3s, border 0.3s; /* Transition for hover effect */
     
     /* Glassmorphism effect */
     background: rgba(255, 255, 255, 0.1); /* Transparent white background */
@@ -1243,19 +1247,63 @@ footer {
     align-items: center; /* Center the icon */
     width: 40px; /* Set a fixed width for the circular effect */
     height: 40px; /* Set a fixed height for the circular effect */
+    opacity: 1;
 }
 
-.social-links a:hover {
-    color: #0073b6; /* Change icon color on hover */
-    background: rgba(255, 255, 255, 0.3); /* Change background on hover */
-    border: 2px solid rgba(255, 255, 255, 0.6); /* Darker border on hover */
+/* Facebook blue color on hover */
+.footer-column .social-links a.facebook:hover i {
+    color: #4267B2; /* Facebook blue on hover */
 }
+
+/* YouTube red color on hover */
+.footer-column .social-links a.youtube:hover i {
+    color: #FF0000; /* YouTube red on hover */
+}
+
+/* Instagram color on hover */
+.footer-column .social-links a.instagram:hover i {
+    color: #E1306C; /* Instagram pink on hover */
+}
+
+/* LinkedIn blue color on hover */
+.footer-column .social-links a.linkedin:hover i {
+    color: #0077B5; /* LinkedIn blue on hover */
+}
+
+/* Border color and shadow effects */
+/* YouTube red border on hover */
+.footer-column .social-links a.youtube:hover {
+    border-color: #FF0000; /* YouTube red on hover */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Red shadow on hover */
+}
+
+/* Facebook blue border on hover */
+.footer-column .social-links a.facebook:hover {
+    border-color: #4267B2; /* Facebook blue on hover */
+    box-shadow: 0 0 10px rgba(66, 103, 178, 0.5); /* Blue shadow on hover */
+}
+
+/* Instagram pink border on hover */
+.footer-column .social-links a.instagram:hover {
+    border-color: #E1306C; /* Instagram pink on hover */
+    box-shadow: 0 0 10px rgba(225, 48, 108, 0.5); /* Pink shadow on hover */
+}
+
+/* LinkedIn blue border and shadow on hover */
+.footer-column .social-links a.linkedin:hover {
+    border-color: #0077B5; /* LinkedIn blue on hover */
+    box-shadow: 0 0 10px rgba(0, 119, 181, 0.5); /* Blue shadow on hover */
+}
+
+
+
 
 .footer-bottom {
     text-align: center; /* Center text in the bottom section */
     margin-top: 20px; /* Space above footer text */
     font-size: 14px; /* Font size for footer text */
 }
+
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
