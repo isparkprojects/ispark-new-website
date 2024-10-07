@@ -56,7 +56,7 @@ body::-webkit-scrollbar {
     text-decoration: none;
     font-size: 16px;
     font-weight: 768;
-    text-shadow: rgba(0, 0, 0, 0.9);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Soft shadow for contrast */
     color: #fbfcfc;
     transition: color 0.3s ease;
 }
@@ -181,7 +181,6 @@ a, button {
     z-index: 0.1;
 
 }
-
 
 
 
