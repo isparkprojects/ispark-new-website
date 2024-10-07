@@ -233,6 +233,7 @@ a, button {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    padding: 0 5px;
 }
 
 .external-item {
@@ -299,6 +300,17 @@ a, button {
     font-size: 1.1rem;
     color: #6c757d;
 }
+
+.competition-poster img {
+    width: 100%; /* Make the image take up 100% of the container width */
+    height: auto; /* Maintain the aspect ratio of the image */
+    max-width: 800px; /* Optional: Limit the maximum width to avoid overly large images */
+    display: block; /* Ensures no unwanted margins or gaps around the image */
+    margin: 0 auto; /* Center the image horizontally */
+    border-radius: 5px;
+}
+
+
 
 /* Internal Competition Styles */
 .internal-competition{
