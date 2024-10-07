@@ -1192,6 +1192,7 @@ footer {
 .footer-column {
     flex: 1; /* Allow columns to grow */
     margin: 10px; /* Add margin between columns */
+    text-align: justify;
 }
 
 .footer-column h4 {
