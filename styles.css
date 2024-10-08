@@ -782,7 +782,7 @@ a, button {
 .team-section {
     padding: 50px 0;
     text-align: center;
-    background-color: #d5dbdb;
+    background-color: #ccd1d1;
 }
 
 .team-section h2 {
@@ -1021,9 +1021,50 @@ a, button {
     transform: scale(0.95);
 }
 
+/* Education Program Manager Section */
+.epm-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #d5dbdb; /* Light background for distinction */
+}
+
+.epm-section h2 {
+    font-size: 2.5rem;
+    color: #0073b6;
+    margin-bottom: 40px;
+}
+
+/* EPM Profiles */
+.epm-profiles .profile {
+    width: 390px;  /* Set size for EPM profiles */
+    height: 390px;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.epm-profiles .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.epm-profiles .profile-info {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+}
+
+.epm-profiles .profile:hover .profile-info {
+    transform: translateY(0);
+}
+
+
 /* Products Section */
 .products-section {
-    background-color: #ccd1d1;
+    background-color: #d5dbdb;
     padding: 10px 0;
 }
 
