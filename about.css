@@ -13,6 +13,16 @@ body {
     position: relative;
     background-color: #ccd1d1;
 }
+body:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -20px; /* Extend beyond viewport to hide the scrollbar */
+    bottom: 0;
+    z-index: -1; /* Hide behind content */
+    background-color: transparent; /* Ensure it doesn't block the content */
+}
 
 img {
     max-width: 100%;
@@ -148,6 +158,7 @@ body::-webkit-scrollbar {
     justify-content: center;
     text-align: center;
     color: #fff;
+    margin-bottom: 0; /* Ensure there's no margin between the hero and the next section */
 }
 
 .video-background {
@@ -295,44 +306,101 @@ body::-webkit-scrollbar {
     font-size: 1.75rem;
 }
 
-.mission p, .vision p {
+.mission p, .vision p , .team p{
     font-size: 1rem;
     line-height: 1.6;
 }
 
 /* Team Section */
 .team-section {
-    padding: 3.75rem 1.25rem;
-    margin: 0 auto 2.5rem auto;
-    background-color: #e9f2f9;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
+    padding: 4rem 1.5rem;
+    background-color: #d5d5d5;
     text-align: center;
+    margin-top: -3%; /* Add this if there’s an unwanted gap above the section */
 }
 
 .team-grid {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 .team-member {
-    width: 250px;
-    text-align: center;
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    background-color: #ccd1d1;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover{
+    box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.9);
+}
+
+.team-photo-container {
+    flex: 0 0 250px; /* Increased the container width */
+    margin-right: 20px;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .team-photo {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 20px;
+    width: 100%; /* Ensures the image takes up the full width of the container */
+    height: auto; /* Maintains aspect ratio */
+    max-width: 250px; /* Matches the new container width */
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
+.team-member:hover .team-photo {
+    transform: scale(1.1);
+}
+
+.team-info {
+    flex: 1;
+    text-align: left;
+    overflow-wrap: break-word; /* Ensures text wraps properly */
+}
+
+.team-info h3 {
+    font-size: 1.8rem;
+    color: #0073b6;
+    margin-bottom: 1%;
+}
+
+.team-position {
+    font-size: 1.2rem;
+    color: #E69138;
+    margin-bottom: 1%;
+}
+
+.team-description {
+    color: #333333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+    white-space: normal; /* Ensure text doesn't get cut off */
+}
+
+/* Ensure the box grows with content */
+.team-member {
+    flex-wrap: nowrap;
+    word-wrap: break-word;
+    min-height: 150px;
+}
+
+/* Section Title */
 .team-section h2 {
+    font-size: 2.5rem;
     color: #0073b6;
     margin-bottom: 2rem;
 }
+
+
 
 /* Contact Section */
 .contact-section {
