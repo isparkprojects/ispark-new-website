@@ -452,7 +452,9 @@ a, button {
     align-items: center;
     margin: 60px 0;
 }
-
+.content-column {
+    animation-delay: 0.5s;
+}
 .image-column, .content-column {
     width: 45%;
 }
@@ -577,11 +579,15 @@ a, button {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     overflow: hidden;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     display: flex; /* Added */
     justify-content: center; /* Horizontally center the text */
     align-items: center; /* Vertically center the text */
 }
+.image-column, .content-column, .mission, .vision {
+    will-change: transform, opacity;
+}
+
 
 /* Apply background images */
 .mission {

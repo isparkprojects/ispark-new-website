@@ -329,7 +329,7 @@ body::-webkit-scrollbar {
 
 .team-member {
     display: flex;
-    align-items: flex-start; /* Align items to the top */
+    align-items: center; /* Centers the image and text vertically */
     background-color: #ccd1d1;
     padding: 20px;
     border-radius: 12px;
@@ -342,22 +342,27 @@ body::-webkit-scrollbar {
 }
 
 .team-photo-container {
-    flex: 0 0 250px; /* Increased the container width */
-    margin-right: 20px;
-    border-radius: 12px;
+    width: 250px;
+    flex: 0 0 250px; /* Set fixed width for image container */
+    height: 250px;
+    border-radius: 50%; /* Keep the image circular */
     overflow: hidden;
+    margin-bottom: 20px; /* Add spacing between the image and text */
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    margin-right: 1%;
 }
 
 .team-photo {
-    width: 100%; /* Ensures the image takes up the full width of the container */
-    height: auto; /* Maintains aspect ratio */
-    max-width: 250px; /* Matches the new container width */
-    object-fit: cover;
+    width: 100%; /* Make the image take up the full container width */
+    height: 100%; /* Make the image take up the full container height */
+    object-fit: cover; /* Ensures the image covers the container while keeping the aspect ratio */
     transition: transform 0.3s ease;
 }
 
 .team-member:hover .team-photo {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 .team-info {
@@ -380,7 +385,7 @@ body::-webkit-scrollbar {
 
 .team-description {
     color: #333333;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     line-height: 1.6;
     text-align: justify;
     white-space: normal; /* Ensure text doesn't get cut off */
