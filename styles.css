@@ -135,7 +135,7 @@ a, button {
 }
 
 .video-background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 102%;
@@ -450,20 +450,30 @@ a, button {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 60px 0;
+    margin-top: 2%;
+    padding: 3%;
+    background-color: #ccd1d1;
+    
 }
 .content-column {
     animation-delay: 0.5s;
 }
 .image-column, .content-column {
     width: 45%;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Only animate transform and opacity */
 }
+.image-column img {
+    max-width: 100%; /* Ensure the image does not exceed the column width */
+    height: auto;
+}
+
 
 .who{
     text-align: center;
-    margin-top: -100px;
-    margin-bottom: 20px;
+    margin-top: 1%;
+    margin-bottom: 2%;
     color: #0073b6;
+    font-size: 2rem;
 
 }
 
@@ -477,8 +487,8 @@ a, button {
     cursor: pointer;
     outline: none;
     border: 0;
-    margin-top: 20px;
-    margin-bottom: -100px;
+    margin-top: 2%;
+    margin-bottom: 1%;
     background: transparent;
     padding: 0;
     font-size: inherit;
@@ -591,11 +601,11 @@ a, button {
 
 /* Apply background images */
 .mission {
-    background-image: url('students/IMG_3493.jpg');
+    background-image: url('images/m1.jpg');
 }
 
 .vision {
-    background-image: url('students/IMG_3958.jpg');
+    background-image: url('images/v1.jpg');
 }
 
 /* Text overlay for readability */
