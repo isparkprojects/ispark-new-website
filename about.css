@@ -23,6 +23,40 @@ body:before {
     z-index: -1; /* Hide behind content */
     background-color: transparent; /* Ensure it doesn't block the content */
 }
+/* Base state for the elements before they become visible */
+.scroll-element {
+    opacity: 0;
+    transform: translateX(-100%); /* Initially positioned off the left side */
+    transition: all 1s ease-in-out;
+}
+
+/* When scrolling down, slide in from the left */
+.scroll-element.show-left {
+    opacity: 1;
+    transform: translateX(0); /* Slide into view */
+    transition: all 1s ease-in-out; /* Increase duration */
+}
+
+/* When scrolling up, slide in from the right */
+.scroll-element.show-right {
+    opacity: 1;
+    transform: translateX(0); /* Slide into view */
+    transition: all 1s ease-in-out; /* Increase duration */
+}
+
+/* Hidden to the left for scrolling down */
+.scroll-element.hide-left {
+    opacity: 0;
+    transform: translateX(-100%); /* Move off the left */
+    transition: all 1s ease-in-out; /* Increase duration */
+}
+
+/* Hidden to the right for scrolling up */
+.scroll-element.hide-right {
+    opacity: 0;
+    transform: translateX(100%); /* Move off the right */
+    transition: all 1.5s ease-in-out; /* Increase duration */
+}
 
 img {
     max-width: 100%;
