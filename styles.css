@@ -465,6 +465,7 @@ a, button {
 .image-column img {
     max-width: 100%; /* Ensure the image does not exceed the column width */
     height: auto;
+    border-radius: 2%;
 }
 
 
@@ -601,11 +602,11 @@ a, button {
 
 /* Apply background images */
 .mission {
-    background-image: url('images/m1.jpg');
+    background-image: url('images/m12.jpg');
 }
 
 .vision {
-    background-image: url('images/v1.jpg');
+    background-image: url('images/v12.jpg');
 }
 
 /* Text overlay for readability */
