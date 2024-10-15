@@ -18,7 +18,7 @@ body:before {
     position: absolute;
     top: 0;
     left: 0;
-    right: -20px; /* Extend beyond viewport to hide the scrollbar */
+    right: -2%; /* Extend beyond viewport to hide the scrollbar */
     bottom: 0;
     z-index: -1; /* Hide behind content */
 }
@@ -54,7 +54,7 @@ body::-webkit-scrollbar {
 }
 .nav-links a {
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 768;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Soft shadow for contrast */
     color: #fbfcfc;
@@ -84,8 +84,11 @@ a, button {
 }
 
 .navbar .logo img {
-    height: 50px;
+    height: auto;
+    width: 100px; /* Adjust width while maintaining the aspect ratio */
+    max-width: 100%;
 }
+
 
 .navbar .nav-links {
     list-style: none;
@@ -312,7 +315,7 @@ a, button {
     background-image: linear-gradient(43deg, #FFD768 10%, #db511f 46%, #ff2701 100%);
     -webkit-background-clip: text;
     color: transparent;
-    font-size: 5vw;
+    font-size: 3rem;
     font-weight: 768;
     margin-bottom: 20px;
     animation: text 1s 1;
@@ -335,7 +338,7 @@ a, button {
 }
 
 .get-started {
-    font-size: 23px;
+    font-size: 1.25rem;
     color: #fff;
     text-decoration: none;
     border: 2px solid #fff;
@@ -784,7 +787,7 @@ a, button {
 
 /* Founders Section */
 .founders-section {
-    padding: 50px 0;
+    padding: 5% 0;
     text-align: center;
     background-color: #ccd1d1; /* Light background for distinction */
 }
@@ -792,12 +795,12 @@ a, button {
 .founders-section h2 {
     font-size: 2.5rem;
     color: #0073b6;
-    margin-bottom: 40px;
+    margin-bottom: 4%;
 }
 
 /* Team Section */
 .team-section {
-    padding: 50px 0;
+    padding: 5% 0;
     text-align: center;
     background-color: #ccd1d1;
 }
@@ -805,7 +808,7 @@ a, button {
 .team-section h2 {
     font-size: 2.5rem;
     color: #0073b6;
-    margin-bottom: 40px;
+    margin-bottom: 4%;
 }
 
 /* Common Profile Styles */
@@ -821,7 +824,7 @@ a, button {
 .founders-profiles .profile {
     width: 390px;  /* Set a larger width for founders */
     height: 390px; /* Set a larger height for founders */
-    margin: 0 20px; /* Add horizontal margin for spacing */
+    margin: 0 2%; /* Add horizontal margin for spacing */
     display: inline-block; /* Ensure they are displayed in a row */
 }
 
