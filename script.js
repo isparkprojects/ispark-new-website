@@ -75,7 +75,7 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add this part to track active section and highlight the corresponding nav link
+// Handle navbar highlighting for active sections
 const allSections = document.querySelectorAll('section');
 const navLinksArray = document.querySelectorAll('.nav-links a:not(.get-app)'); // Exclude Get App link
 
@@ -100,7 +100,7 @@ allSections.forEach((section) => {
     observer.observe(section);
 });
 
-// Initial check for animations on load
+// Initial animations on page load
 window.addEventListener('load', () => {
     const sections = document.querySelectorAll('.two-column-section, .mission, .vision, .product-card');
     sections.forEach((section, index) => {
@@ -141,4 +141,27 @@ window.addEventListener('scroll', () => {
         });
     }
     isScrolling = true;
+});
+
+// Toggle buttons based on login status
+document.addEventListener('DOMContentLoaded', function () {
+    const authToken = localStorage.getItem('authToken');
+
+    // Check if the user is logged in
+    if (authToken) {
+        document.getElementById('loginButton').style.display = 'none';  // Hide login button
+        document.getElementById('signupButton').style.display = 'none';  // Hide signup button
+        document.getElementById('dashboardButton').style.display = 'inline';  // Show dashboard button
+    } else {
+        // If not logged in, show login and signup buttons
+        document.getElementById('loginButton').style.display = 'inline';  // Show login button
+        document.getElementById('signupButton').style.display = 'inline';  // Show signup button
+        document.getElementById('dashboardButton').style.display = 'none';  // Hide dashboard button
+    }
+
+    // Optionally set the user's name dynamically in the dashboard
+    const username = localStorage.getItem('username') || 'User';
+    if (document.querySelector('header h1')) {
+        document.querySelector('header h1').textContent = `Welcome, ${username}`;
+    }
 });

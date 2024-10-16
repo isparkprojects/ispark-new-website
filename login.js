@@ -1,26 +1,69 @@
-// Toggle between Sign In and Sign Up
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+// Handle Signup Form Submission
+document.querySelector('#signupForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-// Event listeners for toggling between Sign In and Sign Up
-signUpButton.addEventListener('click', () => {
-    container.classList.add("right-panel-active");
-});
+    const name = e.target.querySelector('input[type="text"]').value;
+    const email = e.target.querySelector('input[type="email"]').value;
+    const password = e.target.querySelector('#password').value;
 
-signInButton.addEventListener('click', () => {
-    container.classList.remove("right-panel-active");
-});
+    try {
+        const response = await fetch('/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, password }),
+        });
 
-// Automatically show the Sign Up form if the URL has the '?signup' parameter
-window.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('signup')) {
-        container.classList.add('right-panel-active');
+        const data = await response.json();
+
+        // If signup is successful, save the token and redirect to the login page
+        if (response.status === 201) {
+            localStorage.setItem('token', data.token);
+            window.location.href = 'login.html';  // Redirect to login page
+        } else {
+            // Show the error message if signup fails
+            document.getElementById('feedback-message').textContent = data.message;
+        }
+    } catch (error) {
+        console.error('Error during signup:', error);
+        document.getElementById('feedback-message').textContent = 'Something went wrong. Please try again.';
     }
 });
 
-// Password visibility toggle for Sign Up
+// Handle Login Form Submission
+document.querySelector('#loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = e.target.querySelector('input[type="email"]').value;
+    const password = e.target.querySelector('#login-password').value;
+
+    try {
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+
+        // If login is successful, save the token and redirect to the home page
+        if (response.status === 200) {
+            localStorage.setItem('authToken', data.token);
+            window.location.href = 'index.html';  // Redirect to the home page
+        } else {
+            // Show error message if login fails
+            document.getElementById('login-feedback-message').textContent = data.message;
+        }
+    } catch (error) {
+        console.error('Error logging in:', error);
+        document.getElementById('login-feedback-message').textContent = 'Something went wrong. Please try again.';
+    }
+});
+
+// Password visibility toggle for Signup
 const togglePassword = document.getElementById('togglePassword');
 const passwordInput = document.getElementById('password');
 togglePassword.addEventListener('click', () => {
@@ -29,7 +72,7 @@ togglePassword.addEventListener('click', () => {
     togglePassword.classList.toggle('fa-eye-slash');
 });
 
-// Password visibility toggle for Sign In
+// Password visibility toggle for Login
 const toggleLoginPassword = document.getElementById('toggleLoginPassword');
 const loginPasswordInput = document.getElementById('login-password');
 toggleLoginPassword.addEventListener('click', () => {
