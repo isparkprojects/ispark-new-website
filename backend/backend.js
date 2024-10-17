@@ -83,28 +83,31 @@ app.post('/api/login', async (req, res) => {
         return res.status(400).json({ message: 'All fields are required' });
     }
 
+    console.log('Attempting to log in with email:', email); // Log the email used for login
+
     try {
-        // Check if the user exists
         const user = await User.findOne({ email });
+        console.log('User found:', user); // Log the user found
+
         if (!user) {
             return res.status(401).json({ message: 'Invalid email or password' });
         }
 
-        // Compare the entered password with the hashed password in the database
         const validPassword = await bcrypt.compare(password, user.password);
+        console.log('Password valid:', validPassword); // Log whether the password is valid
+
         if (!validPassword) {
             return res.status(401).json({ message: 'Invalid email or password' });
         }
 
-        // Create and sign a JWT token
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-        // If login is successful
         return res.status(200).json({ message: 'Login successful', token });
     } catch (err) {
+        console.error('Error logging in:', err); // Log the error
         return res.status(500).json({ message: 'Error logging in', error: err.message });
     }
 });
+
 
 // Protected dashboard route
 app.get('/api/dashboard', authenticateToken, async (req, res) => {

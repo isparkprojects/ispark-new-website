@@ -7,7 +7,7 @@ document.querySelector('#signupForm').addEventListener('submit', async (e) => {
     const password = e.target.querySelector('#password').value;
 
     try {
-        const response = await fetch('/api/signup', {
+        const response = await fetch('http://127.0.0.1:5001/api/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ document.querySelector('#loginForm').addEventListener('submit', async (e) => {
     const password = e.target.querySelector('#login-password').value;
 
     try {
-        const response = await fetch('/api/login', {
+        const response = await fetch('http://127.0.0.1:5001/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -49,12 +49,11 @@ document.querySelector('#loginForm').addEventListener('submit', async (e) => {
 
         const data = await response.json();
 
-        // If login is successful, save the token and redirect to the home page
+        // If login is successful, save the token and redirect to the dashboard
         if (response.status === 200) {
-            localStorage.setItem('authToken', data.token);
-            window.location.href = 'index.html';  // Redirect to the home page
+            localStorage.setItem('authToken', data.token);  // Use the same key for the token
+            window.location.href = 'dashboard.html';  // Redirect to the dashboard
         } else {
-            // Show error message if login fails
             document.getElementById('login-feedback-message').textContent = data.message;
         }
     } catch (error) {
@@ -62,6 +61,7 @@ document.querySelector('#loginForm').addEventListener('submit', async (e) => {
         document.getElementById('login-feedback-message').textContent = 'Something went wrong. Please try again.';
     }
 });
+
 
 // Password visibility toggle for Signup
 const togglePassword = document.getElementById('togglePassword');
